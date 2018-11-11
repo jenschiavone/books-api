@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
+  include BestsellerService
   before_action :set_book, only: [:show]
 
   def index
-    @books = Book.all
+    @books = BestsellerService.get_bestseller_list
     json_response(@books)
   end
 
