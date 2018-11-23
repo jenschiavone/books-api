@@ -3,7 +3,12 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show]
 
   def index
-    @books = BestsellerService.get_bestseller_list
+    @books = BestsellerService.get_bestseller_list('hardcover-fiction')
+    json_response(@books)
+  end
+
+  def books_by_genre
+    @books = BestsellerService.get_bestseller_list(params[:genre])
     json_response(@books)
   end
 
