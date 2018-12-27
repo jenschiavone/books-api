@@ -1,7 +1,8 @@
 module BestsellerService
   def self.get_bestseller_list(genre)
     api_key = ENV['NYT_API_KEY']
-    response = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists/#{genre}.json?api-key=#{api_key}")
+    base_url = ENV['NYT_BASE_URL']
+    response = HTTParty.get("#{base_url}/svc/books/v3/lists/#{genre}.json?api-key=#{api_key}")
     bestsellers = []
     response['results']['books'].each do |nyt_book|
       book = Book.new

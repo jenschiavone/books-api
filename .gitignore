@@ -24,3 +24,6 @@
 
 #Environment varialbes
 .env
+
+/automation/.idea
+.idea/
