@@ -1,5 +1,6 @@
 require 'factory_bot'
 require_relative '../models/nyt_response'
+require 'faker'
 
 FactoryBot.define do
   factory :nyt_response, class: NytResponse do
@@ -8,6 +9,9 @@ FactoryBot.define do
   end
 
   factory :book do
-    title {'My Title'}
+    title {Faker::Book.title}
+    author {Faker::Book.author}
+    sequence(:rank)
+    # rank {'My Title'}
   end
 end
