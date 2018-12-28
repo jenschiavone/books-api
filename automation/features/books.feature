@@ -4,7 +4,13 @@ Feature: Books tests
     When I make a call to the Books API
     Then I should get a successful response
 
-  Scenario: Get Hardcover Fiction books
-    Given there is a list of hardcover fiction books
-    When I make a request for hardcover fiction books
-    Then I should see a list of hardcover fiction books
+  Scenario Outline: Get books by genre
+    Given there is a list of <genre> books
+    When I make a request for the list
+    Then the api should return the list
+
+    Examples:
+      | genre                   |
+      | Trade Fiction Paperback |
+      | Hardcover Fiction       |
+      | Hardcover Nonfiction    |
