@@ -2,7 +2,7 @@ require 'wiremock_mapper'
 
 class NytList
 
-  WireMockMapper::Configuration.set_wiremock_url(MOCK_BASE_URI)
+  WireMockMapper::Configuration.set_wiremock_url(MOCK_BASE_URL)
 
   attr_accessor :books, :list_name, :list_name_encoded
 
